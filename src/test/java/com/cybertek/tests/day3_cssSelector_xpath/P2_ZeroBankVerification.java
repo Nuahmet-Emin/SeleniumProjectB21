@@ -23,9 +23,9 @@ public class P2_ZeroBankVerification {
         String expectedLinkText = "Zero Bank";
         String actualLinkText = zeroBankLink.getText();
 
-        if(actualLinkText.equals(expectedLinkText)){
+        if (actualLinkText.equals(expectedLinkText)) {
             System.out.println("Link text verification PASSED!");
-        }else{
+        } else {
             System.out.println("Link text verification FAILED!!!");
             System.out.println("Expected link text: " + expectedLinkText);
             System.out.println("Actual link text: " + actualLinkText);
@@ -33,7 +33,18 @@ public class P2_ZeroBankVerification {
 
         // 4.Verify link hrefattribute value contains:Expected: “index.html”
 
+        String expextedInHref = "index.html";
+        String actualHref = zeroBankLink.getAttribute("href");
 
 
+        if (actualHref.contains(expextedInHref)) {
+            System.out.println("Href value verification PASSED!");
+        } else {
+            System.out.println("Href value verification FAILED!!!");
+            System.out.println("ExpectedInHref = " + expextedInHref);
+            System.out.println("actualHref = " + actualHref);
+        }
+
+        driver.close();
     }
 }
