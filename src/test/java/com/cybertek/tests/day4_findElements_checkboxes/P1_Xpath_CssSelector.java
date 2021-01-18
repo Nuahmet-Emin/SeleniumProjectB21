@@ -23,10 +23,28 @@ public class P1_Xpath_CssSelector {
 // b. “Forgot password” header
         WebElement forgotPasswordHeader = driver.findElement(By.xpath("//h2[.='Forgot Password']"));
 
-// c. “E-mail” textd. E-mail input box
+// c. “E-mail” text
+        WebElement emailLabel = driver.findElement(By.xpath("//label[.='E-mail']"));
+        // WebElement emailLabel = driver.findElement(By.xpath("//label[@for='email']"));
+
+//  d. E-mail input box
+        WebElement emailInputBox = driver.findElement(By.cssSelector("input[type='text']"));
+
 // e. “Retrieve password” button
+        //WebElement retrievePasswordButton = driver.findElement(By.cssSelector("button[id='form_submit']"));
+        WebElement retrievePasswordButton = driver.findElement(By.cssSelector("button#form_submit"));
+
 // f. “Powered byCybertek School” text
+        WebElement footerText = driver.findElement(By.xpath("//div[@style='text-align: center;']"));
 // 4. Verify all WebElements are displayed.
+
+        if(homeLink.isDisplayed() && forgotPasswordHeader.isDisplayed()
+        && emailLabel.isDisplayed() && emailInputBox.isDisplayed()
+        && retrievePasswordButton.isDisplayed() && footerText.isDisplayed()){
+            System.out.println("ALL web elements are displayed, verification passed");
+        }else{
+            System.out.println("Not displayed, verification Failed");
+        }
     }
 
 }
