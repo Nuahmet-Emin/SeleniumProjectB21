@@ -1,4 +1,4 @@
-package com.cybertek.tests.tasks.day3_tasks.P1_Cybertek;
+package com.cybertek.tests.tasks.day3_tasks;
 
 import com.cybertek.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
@@ -15,11 +15,12 @@ public class com_ForgotPasswordWebELementVerification {
         driver.get("http://practice.cybertekschool.com/forgot_password");
         // 3. Locate all the WebElements on the page using XPATH and/or CSSlocator only (total of 6)
         // a. “Home” link.
+        /*
         WebElement home = driver.findElement(By.xpath("//a[@class = 'nav-link']"));
         home.click();
         driver.navigate().back();
         // b.“Forgot password” header
-        WebElement forgotPassword = driver.findElement(By.cssSelector("//h2[.= 'Forgot Password']"));
+        WebElement forgotPassword = driver.findElement(By.xpath("//h2[.= 'Forgot Password']"));
         System.out.println("forgotPassword text: " + forgotPassword.getText());
 
         // c. “E-mail” text
@@ -29,19 +30,22 @@ public class com_ForgotPasswordWebELementVerification {
         // d. E-mail input box
         WebElement inputBox = driver.findElement(By.xpath("//input[contains(@name,'email')]"));
         inputBox.sendKeys("abc@gmail.com");
-        driver.navigate().back();
+
 
         // e. “Retrieve password” button.
         WebElement retrievePassword = driver.findElement(By.xpath("//button[@id ='form_submit']"));
         retrievePassword.click();
-        driver.navigate().back();
+        */
+        //driver.navigate().back();
 
         // f.“Powered byCybertek School” text
-        WebElement byCybertekSchool1 = driver.findElement(By.xpath("//div[@style = 'text-align: center;']"));
-        WebElement byCybertekSchool2 = driver.findElement(By.xpath("//a[.= 'Cybertek School']"));
-        String expectedText = "Powered byCybertek School";
-        String actualText = byCybertekSchool1.getText() + byCybertekSchool2.getText();
+        WebElement byCybertekSchool = driver.findElement(By.xpath("//div[@style = 'text-align: center;']"));
+        String expectedText = "Powered by Cybertek School";
+        String actualText = byCybertekSchool.getText();
 
+
+        System.out.println("ExpectedText = " + expectedText);
+        System.out.println("Actual text = " + actualText);
         System.out.println(expectedText.equals(actualText));
 
 
