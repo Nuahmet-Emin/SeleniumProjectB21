@@ -131,8 +131,29 @@ public class DropdownTasks {
             Assert.assertFalse(each.isSelected());
         }
 
-
     }
+    @Test
+    public void test5_non_select_dropdown() throws InterruptedException {
+    //TC #5: Selecting value from non-select dropdown
+        //1. Open Chrome browser
+        //2. Go to http://practice.cybertekschool.com/dropdown
+        //3. Click to non-select dropdown
+        WebElement websiteDropdown = driver.findElement(By.xpath("//a[@id='dropdownMenuLink']"));
+        websiteDropdown.click();
+
+        //4. Select Facebook from dropdown
+        Thread.sleep(1000);
+        WebElement facebookLink  = driver.findElement(By.xpath("//a[.='Facebook']"));
+
+        facebookLink.click();
+
+        //5. Verify title is “Facebook - Log In or Sign Up”
+        String expectedTitle = "Facebook - Log In or Sign Up";
+        String actualTitle = driver.getTitle();
+
+        Assert.assertEquals(actualTitle, expectedTitle,"Title is not as expected!!!");
+    }
+
      @AfterMethod
     public void tearDowMethod() throws InterruptedException {
         //additional 5 second before closing the browser
