@@ -55,6 +55,21 @@ public class AlertPractice {
         Assert.assertEquals(actualText,expectedText);
     }
 
+    @Test
+    public void confirmation_alert_practice(){
+        //3. Click to “Click for JS Confirm” button
+        //4. Click to OK button from the alert
+        //5. Verify “You clicked: Ok” text is displayed
+    }
+
+    @Test
+    public void informationAlertPractice(){
+        //3. Click to “Click for JS Prompt” button
+        //4. Send “hello” text to alert
+        //5. Click to OK button from the alert
+        //6. Verify “You entered: hello” text is displayed.
+    }
+
 
     @AfterMethod
     public void teardownMethod() throws InterruptedException {
