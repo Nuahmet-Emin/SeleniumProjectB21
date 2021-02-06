@@ -8,14 +8,31 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 public class WebTablePractices extends TestBase {
 
 
     @Test
-    public void verify_order_test() throws InterruptedException {
-        driver.get("http://secure.smartbearsoftware.com/samples/TestComplete12/WebOrders/Login.aspx?ReturnUrl=%2fsamples%2fTestComplete12%2fWebOrders%2fDefault.aspx");
+    public void verify_order_test() throws InterruptedException, IOException {
+        // 1. create properties class object
+        Properties properties = new Properties();
+
+        // 2. open the file in JVM Memory and pass the path of the file
+        String path = "configuration.properties";
+
+        FileInputStream file = new FileInputStream(path);
+
+        // 3. Load the opened file into the Properties object
+
+        properties.load(file);
+
+        String url = properties.getProperty("webOrderUrl");
+
+        driver.get(url);
 
         WebOrderUtils.loginToSmartBear(driver);
 
