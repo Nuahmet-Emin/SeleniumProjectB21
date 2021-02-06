@@ -28,8 +28,11 @@ public class ConfigurationReader {
         }
     }
 
+    // #4 Use the object to read from the configuration.properties file
 
-
+    public static String getProperty(String keyWord){
+        return properties.getProperty(keyWord);
+    }
 
 
 
