@@ -12,6 +12,31 @@ import org.testng.annotations.Test;
 public class ActionPractices {
 
     @Test
+    public void p3_dragAndDrop(){
+        //1.Go	to	https://demos.telerik.com/kendo-ui/dragdrop/index
+        Driver.getDriver().get("https://demos.telerik.com/kendo-ui/dragdrop/index");
+
+        //handling cookie pop up
+        WebElement cookieAgreeButton = Driver.getDriver().findElement(By.id("onetrust-accept-btn-handler"));
+        cookieAgreeButton.click();
+
+        // 2.Drag	and	drop	the	small	circle	to	bigger	circle.
+        WebElement smallCircle = Driver.getDriver().findElement(By.id("draggable"));
+        WebElement bigCircle = Driver.getDriver().findElement(By.id("droptarget"));
+
+        Actions actions = new Actions(Driver.getDriver());
+
+        BrowserUtils.sleep(2);
+        actions.dragAndDrop(smallCircle,bigCircle).perform();
+
+        // 3.Assert:	-Text	in	big	circle	changedto:	“You	did	great!”
+        String expected = "You did great!";
+        String actual = bigCircle.getText();
+
+        Assert.assertTrue(actual.equals(expected));
+    }
+
+    @Test
     public void p2_doubleClickTest(){
         //1.Go	to	https://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_ev_ondblclick2
         Driver.getDriver().get("https://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_ev_ondblclick2");
