@@ -11,7 +11,7 @@ public class DynamicLoad1Page {
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
-    @FindBy(className = "btn btn-primary")
+    @FindBy(xpath = "//button[.='Start']")
     public WebElement startButton;
 
     @FindBy(id = "loading")
@@ -26,7 +26,7 @@ public class DynamicLoad1Page {
     @FindBy(xpath = "//button[.='Submit']")
     public WebElement submitButton;
 
-    @FindBy(id="flash")
+    @FindBy(xpath = "//div[@class='flash error']")
     public WebElement errorMessage;
 
 
